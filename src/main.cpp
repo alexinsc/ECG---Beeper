@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <Tone.h>
+#include "Tone.h"
 
 // put function declarations here:
 // Pin du buzzer
@@ -9,9 +9,9 @@ int pinBuzzer = 9;
 int buttonPin = 6;
 
 // Fréquences cardiaques
-int highRate = 90;
+int highRate = 100;
 int normalRate = 75;
-int lowRate = 60;
+int lowRate = 50;
 
 // État du beepage
 boolean beepEnabled = true;
@@ -48,7 +48,6 @@ void loop() {
       } else {
         tone(pinBuzzer, 600); // Beep grave
       }
-
       // Pause en fonction de la fréquence cardiaque
       delay(60000 / heartbeatRate);
     } else {
