@@ -30,20 +30,17 @@ void setup() {
 void loop() {
 Poul=analogRead(pindetecteurdepoul); //Lecture de la valeur du pouls
 BATT_S  = (60/Poul)*1000 ; //Calcul de la valeur de la battement par seconde
-int etatBouton= digitalRead(boutonPin); //Lecture de l'état du bouton
 
-
-
-if (etatProgramme){
+while (etatProgramme == true){
 if (Poul>100){
   // Génère une tonalité à 1200 Hz pendant 1 seconde
   int frequence = 1200; // Fréquence en Hertz
-  int duree = 1000; // Durée en millisecondes
+  int nbreit = 1000; // Durée en millisecondes
  
   int periodeMicros = (1000000 / frequence); // Période en microsecondes
   int DemiPeriode = periodeMicros / 2; // Demi-période en microsecondes
 
-  for (int k = 0; k < duree * 1000; k += periodeMicros) { //Boucle de la tonalité
+  for (int k = 0; k < nbreit * 1000; k += periodeMicros) { //Boucle de la tonalité
     // Cycle ON
    
     digitalWrite(beeperPin, HIGH); //Définition du beeper en état haut
@@ -61,12 +58,12 @@ if (Poul>100){
 else if (Poul<50){
   // Génère une tonalité à 300 Hz pendant 1 seconde
   int frequence = 300;
-  int duree = 1000;
+  int nbreit = 1000;
  
   int periodeMicros = (1000000 / frequence); // Période en microsecondes
   int DemiPeriode = periodeMicros / 2; // Demi-période en microsecondes
 
-  for (int k = 0; k < duree  * 1000; k += periodeMicros) {
+  for (int k = 0; k < nbreit  * 1000; k += periodeMicros) {
     // Cycle ON
     digitalWrite(beeperPin, HIGH);
     delayMicroseconds(DemiPeriode);
@@ -81,12 +78,12 @@ else if (Poul<50){
 else  {
   // Génère une tonalité à 600 Hz pendant 1 seconde
   int frequence = 600;
-  int duree = 1000;
+  int nbreit = 1000;
  
   int periodeMicros = (1000000 / frequence); // Période en microsecondes
   int DemiPeriode = periodeMicros / 2; // Demi-période en microsecondes
 
-  for (int k = 0; k < duree * 1000; k += periodeMicros) {
+  for (int k = 0; k < nbreit * 1000; k += periodeMicros) {
     // Cycle ON
    
     digitalWrite(beeperPin, HIGH);
